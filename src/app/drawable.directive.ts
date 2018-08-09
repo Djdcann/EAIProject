@@ -29,7 +29,7 @@ export class DrawableDirective implements OnInit {
   ngOnInit() {
     this.canvas = this.el.nativeElement as HTMLCanvasElement;
     this.ctx = this.canvas.getContext('2d');
-	let c = document.getElementById("pred");
+	let c = document.getElementById("pred") as HTMLCanvasElement;
 	this.con = c.getContext('2d');
   }
   
