@@ -3,7 +3,7 @@
     <div class="col-sm">
       <h3>Draw Here</h3>
         <div class="wrapper">
-            <canvas drawable (newImage)="predict($event)" width="196" height="196"></canvas><br>
+            <canvas drawable (newImage)="predict($event)" width="180" height="180"></canvas><br>
         </div>
 
         <button class="btn btn-sm btn-warning" (click)="canvas.clear()">Erase</button>
@@ -13,6 +13,9 @@
         <h3>TensorFlow Prediction</h3>
         <chart [data]="predictions"></chart>
     </div>
+  </div>
+  <div>
+	<canvas id="pred" width="28" height="28" style="border:1px solid black;display:none"></canvas>
   </div>
 </div>
   

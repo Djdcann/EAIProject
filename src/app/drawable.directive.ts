@@ -5,6 +5,8 @@ import {
   HostBinding,
   ElementRef,
   Output,
+  Component,
+  ViewChild,
   EventEmitter,
   OnInit
 } from '@angular/core';
@@ -12,10 +14,13 @@ import {
 @Directive({
   selector: '[drawable]'
 })
+
+
 export class DrawableDirective implements OnInit {
   pos = { x: 0, y: 0 };
   ctx: CanvasRenderingContext2D;
   canvas: HTMLCanvasElement;
+  con: CanvasRenderingContext2D;
 
   @Output() newImage = new EventEmitter();
 
@@ -24,6 +29,12 @@ export class DrawableDirective implements OnInit {
   ngOnInit() {
     this.canvas = this.el.nativeElement as HTMLCanvasElement;
     this.ctx = this.canvas.getContext('2d');
+	let c = document.getElementById("pred");
+	this.con = c.getContext('2d');
+  }
+  
+  ngAfterViewInit(){
+	
   }
 
   @HostListener('mouseup', ['$event'])
@@ -74,10 +85,11 @@ export class DrawableDirective implements OnInit {
 
   clear() {
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+	this.con.clearRect(0, 0, 28, 28);
   }
 
   getImgData(): ImageData {
-    const scaled = this.ctx.drawImage(this.canvas, 0, 0, 28, 28);
-    return this.ctx.getImageData(0, 0, 28, 28);
+    const scaled = this.con.drawImage(this.canvas, 0, 0, 28, 28);
+    return this.con.getImageData(0, 0, 28, 28);
   }
 }
