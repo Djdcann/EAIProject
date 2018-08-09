@@ -12,3 +12,8 @@ ng serve
 ```
 
 This requires Node.js and Angular to be installed.
+Additionally the published site can be found on the web here: https://djdcann.github.io/EAIProject/
+
+## References
+- Mnist data: http://yann.lecun.com/exdb/mnist/
+- Angular Firebase walkthrough: https://angularfirebase.com/lessons/tensorflow-js-quick-start/
